@@ -11,8 +11,7 @@ This self-hosting journey started last year with a tiny Dell Optiplex 7050 Micro
 That summer, I browsed r/homelab and found a semi-expensive hobby to add to my list (cycling, cooking, etc.). Now, I’ve always seen huge rack servers, but that’s obviously impractical because where the hell am I suppose to put that, and how am I going to pay for the electricity needed to keep it runnning?
 
 ## Micro PCs
-![Amazon - Optiplex](https://m.media-amazon.com/images/I/51muPv+cJzL._AC_UF894,1000_QL80_.jpg)
-
+![Dell Optiplex](assets/optiplex.jpeg "Janky setup, performant outcomes | Photo by [me](https://blog.jeffdao.com)")
 
 Pretty much everyone on r/homelab is a micro PC megacluster-er or has a datacenter inside of place of residence. Either way, I leaned towards micro PCs since it only took about $400 to get started. This included:
 
