@@ -49,7 +49,7 @@ I could not be more creative than this: the dream really starting with the *arrs
 
 Phase 2 was a deviation from the media server function, but in a good way. Actual Budget is an amazing YNAB alternative, and helps me keep track of my spending in a proactive manner. Stirling-PDF came in handy when I needed to fix some of the accounting slides (to be honest, don’t use this THAT much but it’s nice to have).
 
-{{< youtube 85ME8i4Ry6A >}}
+{{< youtube id="85ME8i4Ry6A" title="Techno Tim's video on Proxmox monitoring" >}}
 
 Moving onto the monitoring part, I was inspired by a video by Techno Tim where he went over how to setup alerts because a hard drive failed for him. Now that was setup, Proxmox Backup Server came into the picture since the idea of losing ALL of my progress setting things up would be terrible!
 
