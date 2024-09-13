@@ -1,0 +1,102 @@
+baseURL = "https://blog.jeffdao.com"
+languageCode = "en-us"
+title = "The Inner Workings"
+theme = "ink-free"
+paginate = 5
+
+copyright = "© Copyright notice"
+# Demo only
+#ignoreErrors = ["error-missing-instagram-accesstoken"]
+
+[permalinks]
+  posts = "/:year/:month/:title"
+
+[params]
+	subtitle = "Crisp flow of consciousness"
+
+	# Optional 64x64 avatar image.
+	#avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
+
+	featherIconsCDN = false
+
+	# Site color - dark/light/auto
+	mode = "auto"
+
+	# Enable a table of contents:
+	# Either "static"/true, "floating", "both", or "none" (default: static)
+	# The floating TOC dissapears on mobile and adds 200px vertical space
+	toc = "both"
+	# Whether to truncate everything but H1/H2 headings if the last element in a TOC isn't visible. Enabled by default
+	enableTocTrunate = true
+
+	# Max tags
+	maxTags = 7
+
+	# Define words per minute to approximate reading time
+	wpm = 250
+
+	# Stupid footers :)
+	footers = [ 
+		"What is the purpose of life?",
+		"Think shallow act deeply"
+	]
+
+	# Github base url
+	github = "https://github.com/jeffreydao/jeffdao-blog"
+
+	# For statistics, we can compare the total word count against a book of your choice
+	statisticsEnabled = true
+	referenceBookWords = 34791.0
+	referenceBook = "Peace Is Every Step: The Path of Mindfulness in Everyday Life"
+	referenceAuthor = "Thich Nhat Hanh"
+
+# Nav.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 2
+
+[[menu.main]]
+name = "Tags & Stats"
+url = "/tags"
+weight = 3
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/jeffreydao/"
+
+[[params.social]]
+name = "Instagram"
+icon = "instagram"
+url = "https://instagram.com/jeffreydao/"
+
+[[params.social]]
+name = "Linkedin"
+icon = "linkedin"
+url = "https://linkedin.com/in/jeffreydao/"
+
+[taxonomies]
+   tag = "tags"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 4
+
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = true
+    startLevel = 2 
