@@ -16,7 +16,7 @@ tags: [homelab, hugo, documentation]
 
 ## LXC Setup
 
-```
+```bash
 ## Run on PVE host
 
 bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/ct/ubuntu.sh)"
@@ -43,7 +43,7 @@ nano /root/.ssh/authorized_keys
 ```
 
 ## Pre-reqs for Hugo
-```
+```bash
 ## Git
 
 apt-get install git-all
@@ -85,7 +85,7 @@ hugo version
 ## Site Setup
 
 ### New Site
-```
+```bash
 # For a brand new site, you would use
 
 hugo new site quickstart
@@ -114,7 +114,7 @@ EOF
 
 ## Existing Site
 - Simply clone the existing repository into the root folder.
-```
+```bash
 # Make sure the submodule is cloned as well for theme
 
 git submodule init
@@ -124,7 +124,7 @@ git submodule update
 - To deploy use `./deploy_hugo.sh` to push any new changes to the Caddy LXC
   - Make sure that the Caddy LXC has rsync installed: 
 
-```
+```bash
 sudo apt update
 sudo apt install rsync
 ```
