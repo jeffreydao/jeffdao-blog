@@ -5,7 +5,7 @@ cd /root/jeffdao-blog
 hugo --cleanDestinationDir --minify
 
 # Step 2: Use rsync to copy the public directory to Caddy LXC
-rsync -avzh /root/jeffdao-blog/public caddy:/var/blog
+rsync -avzh --delete /root/jeffdao-blog/public caddy:/var/blog/
 
 # Optional: Print a message when done
 echo "Site deployed to Caddy LXC!"
