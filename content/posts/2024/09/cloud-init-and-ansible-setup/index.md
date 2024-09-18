@@ -19,17 +19,13 @@ Inspiration from Techno Tim and Jim's Garage's videos:
 1. Download ISO: [noble-server-cloudimg-amd64.img](https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img)
 2. Create VM via CLI
 ```bash
-apt update
-apt install libguestfs-tools -y
 cd /var/lib/vz/template/iso/
-virt-customize -a noble-server-cloudimg-amd64.img --install qemu-guest-agent
-
-qm create 1000 --memory 4096 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
-qm importdisk 1000 noble-server-cloudimg-amd64.img local-zfs
-qm set 1000 --scsihw virtio-scsi-pci --scsi0 local-zfs:vm-1000-disk-0
-qm set 1000 --ide2 local-zfs:cloudinit
-qm set 1000 --boot c --bootdisk scsi0
-qm set 1000 --serial0 socket --vga serial0
+qm create 9000 --memory 4096 --core 2 --name ubuntu-cloud --net0 virtio,bridge=vmbr0
+qm importdisk 9000 noble-server-cloudimg-amd64.img local-zfs
+qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-zfs:vm-9000-disk-0
+qm set 9000 --ide2 local-zfs:cloudinit
+qm set 9000 --boot c --bootdisk scsi0
+qm set 9000 --serial0 socket --vga serial0
 ```
 3. Configure the VM via GUI: memory ballooning off, CPU host type, 32gb storage (add 28.5gb from 3.5 storage default), ssh emulation
 4. Cloud-init settings: user, password, ssh public key, and network DHCP
@@ -44,6 +40,17 @@ qm set 1000 --serial0 socket --vga serial0
   hosts: all
   become: true
   tasks:
+    - name: Set timezone
+      community.general.timezone:
+        name: America/Chicago  # Replace with your desired timezone
+
+    - name: Generate and set locale
+      ansible.builtin.shell: |
+        locale-gen en_US.UTF-8
+        update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+      register: locale_update
+      changed_when: locale_update.stdout != ""
+
     - name: Update apt package index
       ansible.builtin.apt:
         update_cache: yes
@@ -51,6 +58,7 @@ qm set 1000 --serial0 socket --vga serial0
     - name: Install dependencies for Docker
       ansible.builtin.apt:
         name:
+          - qemu-guest-agent
           - build-essential
           - apt-transport-https
           - ca-certificates
