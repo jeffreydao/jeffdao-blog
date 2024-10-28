@@ -1,11 +1,12 @@
 ---
-title: "Hugo install"
+title: "Hugo Install"
 date: 2024-10-28
-description: ""
+description: "Initial setup and notes for Hugo install"
 tags: [homelab, hugo, documentation]
 ---
 
 ## Pre-reqs for Hugo
+
 ```bash
 ## Git
 sudo apt install git-all
@@ -73,6 +74,7 @@ EOF
 ```
 
 ## Existing Site
+
 - Simply clone the existing repository into the root folder.
 ```bash
 # Make sure the submodule is cloned as well for theme
@@ -81,3 +83,18 @@ git submodule init
 git submodule update
 ```
 
+## Syncing with Caddy
+
+### Create SSH keypair
+
+- Copy this over to the Ansible host
+```bash
+ssh-keygen -t ed25519 -C "jeffreydao7@gmail.com"
+```
+
+### Update Caddy
+
+blog.jeffdao.com {
+    root * /srv/public
+    file_server
+}
