@@ -2,7 +2,7 @@ baseURL = "https://blog.jeffdao.com"
 languageCode = "en-us"
 title = "The Inner Monologue"
 theme = "ink-free"
-paginate = 5
+pagerSize = 5
 
 copyright = "© Copyright notice"
 # Demo only
